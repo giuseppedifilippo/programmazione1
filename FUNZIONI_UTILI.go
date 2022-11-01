@@ -25,8 +25,24 @@ func div(x int ) int {
 func digit(x int) int {
   var c int
   for x>0 {
-    X/=10
-    C++
+    x/=10
+    c++
   }
   return c
+}
+
+//RITORNA UN SLICE COMPOSTO DALLE CIFRE DI UN NUMERO INTER POSITIVO
+func numArr(x int ) []int {
+for
+}// incompleta
+
+//RITORNA SE UN NUMERO è BINARIO O NO(composto solo da 0 e 1)
+func isBin(x int) bool {
+for x>0 {
+  if !(x%10==0 || x%10==1) {
+    return false
+  }
+  x/=10
+}
+return true
 }
