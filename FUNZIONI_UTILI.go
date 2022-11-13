@@ -48,10 +48,3 @@ return true
 }
 
 //RITORNA UN RANGETABLE DI UNA STRINGA(COMPOSTA DAI VALORI UNICODE DI OGNI CARATTERE)
-func strRT(x string) []int {
-  var vec []int
-  for _, ch:=range x {
-    vec = append(vec, int(ch))
-  }
-  return vec
-}
