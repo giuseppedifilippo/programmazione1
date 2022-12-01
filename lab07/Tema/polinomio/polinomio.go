@@ -1,11 +1,12 @@
 package main
+
 import (
-        "fmt"
-        "bufio"
-        "os"
-        "strings"
-        "strconv"
-        "math"
+	"bufio"
+	"fmt"
+	"math"
+	"os"
+	"strconv"
+	"strings"
 )
 func main() {
   var pol float64
@@ -20,6 +21,7 @@ func main() {
       fmt.Println("fucked up big time")
       return
     }
+    //fmt.Println(n, i)
     pol+= float64(y) * (math.Pow(float64(x), float64(i)))
   }
   fmt.Println(pol)
