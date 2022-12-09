@@ -132,12 +132,16 @@ func dealer(x *[]Carta, m *[]Carta) {
   var pun int 
   for {
     pun = mano(*x)
+    fmt.Println(*x)
     if pun < 17 {
+      fmt.Println("pesca")
+      time.Sleep(time.Duration(1)* time.Second)
       (*x)= append((*x), preleva(m))
     } else if pun >17 && pun<21 {
-      break
+      return
     } else if pun == 21 {
       fmt.Println("BLACKJACK DEL DEALER")
+      return 
     } else {
       fmt.Println("il dealer ha sballato, SEI IL VINCITORE")
       exec.Command("stty", "-F", "/dev/tty", "echo").Run()//se non 

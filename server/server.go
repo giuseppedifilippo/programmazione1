@@ -42,8 +42,8 @@ func mainImage(w http.ResponseWriter, r *http.Request) {
   
   png.Encode(w, campo)
 
-  
 }
+ 
 func main() {
   fmt.Println("Listening on http://localhost:3000")
   http.HandleFunc("/pippo", pippoFunc)
