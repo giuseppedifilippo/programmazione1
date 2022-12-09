@@ -3,6 +3,7 @@
 // tra l utente e la CPU, infatti sono andato un pochino overkill oltre che il programma può certamente essere ottimizzato
 // ma buona parte del programma si basa su un programma modificato che a sua volta nasce da un altro programma modificato
 // p.s. tutte le funzioni di os/exec non so come funzionino bene ma servono soltanto a non farti premere invio ogni volta che vuoi inserire un comando
+// SI RACCOMANDA DI FARE GO BUILD E POI ESEGUIRE NON FARE GO RUN
 package main
 
 import (
@@ -121,6 +122,7 @@ func giocatore(x *[]Carta, m *[]Carta) {
       fmt.Println("BLACKJACK")
       break
     } else if pun > 22 {
+      fmt.Println(x)
       fmt.Printf("%d punti, hai sballato\n", pun)
       exec.Command("stty", "-F", "/dev/tty", "echo").Run()//se non 
       os.Exit(1)
