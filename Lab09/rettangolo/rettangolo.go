@@ -13,8 +13,8 @@ type Rettangolo struct{
 func (x Rettangolo) String() string {
 	var dis string 
 	for i:=0; i<x.h; i++ {
-		for j:=0; i<x.b; j++ {
-			dis += "B"
+		for j:=0; j<x.b; j++ {
+			dis += "."
 		}
 		dis += "\n"
 	}
@@ -27,4 +27,4 @@ func main() {
 	r.b, _ = strconv.Atoi(in[0]) 
 	r.h, _ = strconv.Atoi(in[1])
 	fmt.Println(r.String())
-}
+}//fatto 
