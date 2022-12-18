@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"os"
 )
@@ -15,5 +16,8 @@ func parseFile(filename string) (sl []condizione) {
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "errore di apertura del file %s\n", filename)
 	}
-	scanner := bufio.
+	scanner := bufio.NewScanner(f)
+	for scanner.Scan() {
+		
+	}
 }
