@@ -89,7 +89,7 @@ func TestEsisteCarrello(t *testing.T) {
 func TestString(t *testing.T) {
 	var c Carrello
 	s := fmt.Sprint(c)
-	if s != "posizione 0, carico 0" {
+	if s != "carrello: posizione 0, carico 0" {
 		t.Fail()
 	}
 }

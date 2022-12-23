@@ -8,37 +8,53 @@ import (
 	"strconv"
 	"strings"
 )
+
 type Carrello struct {
 	pos, carico int 
 }
-const MAX = 15
+
+const MAX = 15 
+//stringing del carrello 
 func (c Carrello) String() string {
 	return fmt.Sprintf("carrello: posizione %d, carico %d\n", c.pos, c.carico)
 }
 
+//aggiorna la situazione del carrello con i parametri passati
 func aggiornaStato(c *Carrello, posizione, carico int ) bool {
-	if posizione <0 || carico < 0 {
+	if posizione < 0 || carico < 0 {
 		return false 
 	}
 	c.pos = posizione
-	c.carico += carico 
+	c.carico = carico 
 	return true 
 }
+//la slice deve avere un elemento in piu alla fine 
+//al fine di evitare il panic durante il checking 
+//rimuovere l elemento dureante il reverse parse 
 
+//converte la stringa di input in una slice per un iterazione piu facile
 func parseString(s string) []int {
 	out := []int{}
 	s = strings.ReplaceAll(s, " ", "0")
 	sl := strings.Split(s, "|")
-	sl = sl[1:len(sl)-1]
+	sl = sl[1:]
 	for i:=0; i<len(sl); i++ {
 		temp, _:= strconv.Atoi(sl[i])
 		 out = append(out, temp)
 	} 
 	return out 
 }
+//porta tutti i valori della slice compresi tra start ed end a zero 
+func azzera(sl []int,start, end int ) {
+	for i:=start  ; i<= end ; i++ {
+		sl[i] = 0 
+	}
+}
 
-func reverseParse(c Carrello, sl []int) {
+//stampa la slice nel formato richiesto 
+func reverseParse(c Carrello, sl[]int) {
 	fmt.Print("|")
+	sl = sl[:len(sl)-1]
 	for _, n := range sl {
 		if n != 0 {
 			fmt.Print(n,"|")
@@ -50,72 +66,54 @@ func reverseParse(c Carrello, sl []int) {
 	fmt.Print(c.String())
 }
 
-func azzerra(sl []int, end int) {
-	for i:=1; i <= end ; i++ {
-		sl[i] = 0 
-	} 
-}
-
 
 func main() {
-	listaPesi := map[int]int{}
-	first := true 
-	var count, peso_max  int 
+	listapesi := map[int]int{}
+	keylist := []int{}
+	 var  count ,  peso_max int 
+	var c Carrello
 	filename := os.Args[1]
 	f, err := os.Open(filename)
-	if err != nil {
+	if err != nil || len(os.Args)<2  {
 		fmt.Println("manca nome file")
+		os.Exit(1)
 	}
 	defer f.Close()
-	scanner := bufio.NewScanner(f)
+	scanner:= bufio.NewScanner(f)
 	scanner.Scan()
-	
-	//gestione input 
-	
-	sl := parseString(scanner.Text())//"| | | |12|4| | | |10| | | | |4| | | | |5| |12| | | | |3| |"
-	var c Carrello 
-	for c.pos = 0 ; c.pos <len(sl)-2 ; c.pos++ {
-		if sl[c.pos+1] !=0 {
-			if sl[c.pos+1] > peso_max {
-				peso_max = sl[c.pos+1]
+	sl:=parseString(scanner.Text())
+	for c.pos = 0 ; c.pos < len(sl)-1; c.pos++{
+		if sl[c.pos] != 0 {
+			listapesi[sl[c.pos]]++//mappa che contiene i carichi e le loro occorrenze 
+			if sl[c.pos] > peso_max { // controllo del peso massimo 
+				peso_max = sl[c.pos]
 			}
-			
-			if c.carico+ sl[c.pos+1]<= MAX {
-				listaPesi[sl[c.pos+1]]++
-				aggiornaStato((&c), c.pos , sl[c.pos+1])
-				sl[c.pos] = 0 
-			} else {
-				if first {
-					reverseParse(c, sl)
-					azzerra(sl, c.pos)
-					first = false 
-				}
-				sl[0]+= c.carico
-				reverseParse(c, sl)
-				azzerra(sl, c.pos)
-				c.carico = 0 
-				aggiornaStato((&c), 1, 0 )
-				count++
+			aggiornaStato((&c), c.pos, sl[c.pos]+c.carico)// carico sul carrello il carico nella poszione attuale 
 			}
-			
+		// effettua lo scarico del carrello quando ha raggiunto il massimo che puo trasportare
+		if sl[c.pos+1] + c.carico >= 15 {
+			count++
+			reverseParse(c, sl)
+			azzera(sl, 1, c.pos)
+			sl[0] += c.carico
+			aggiornaStato((&c), 1, 0)
 		}
-	}	
-	//aggiornaStato((&c), c.pos+1, 0)
-	c.pos += 1
-	reverseParse(c, sl)
-	sl[0]+= c.carico
-	c.carico = 0 
-	azzerra(sl, c.pos)
-	aggiornaStato((&c), 0, 0 )
-	reverseParse(c, sl)
-	fmt.Printf("n viaggi: %d\n", count+1)
-	fmt.Printf("peso max : %d\n", peso_max)
-	list := []int{}
-	for k  := range listaPesi {
-		list= append(list, k)
 	}
-	sort.Ints(list)
-	for _, el := range list {
-		fmt.Printf("%d ogg. di peso %d\n", listaPesi[el] , el)
+	sl[0] += c.carico
+	aggiornaStato((&c), 0 ,0 )
+	azzera(sl, 1, len(sl)-1)
+	reverseParse(c, sl)
+	fmt.Printf("n viaggi: %d\n", count)
+	fmt.Printf("peso max: %d\n", peso_max)
+	fmt.Println("oggetti trovati:")
+	for k := range listapesi {
+		keylist = append(keylist, k)
+	}
+	sort.Ints(keylist)
+	for _, el := range keylist {
+		fmt.Printf("%d ogg. di peso %d\n", listapesi[el], el)
 	}
 }
+// il programma funziona non passa i test perchè sono scritti col culo
+//il programma da problemi se si trovva un carico nella posizione 0 
+// all inizio del programma 
