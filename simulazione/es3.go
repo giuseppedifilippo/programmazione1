@@ -23,6 +23,7 @@ func NuovoTragitto() ( tragitto []Punto) {
 		p.ordinata , _ = strconv.ParseFloat(sl[2], 64)
 		tragitto = append(tragitto, p)
 	}
+	return tragitto 
 }
 
 func Distanza(p1, p2 Punto) float64 {
@@ -32,7 +33,7 @@ func Distanza(p1, p2 Punto) float64 {
 }
 
 func String(p Punto) string {
-	fmt.Sprintf("%s = (%f, %f)", p.etichetta, p.ascissa, p.ordinata)
+	return fmt.Sprintf("%s = (%f, %f)", p.etichetta, p.ascissa, p.ordinata)
 }
 
 func Lunghezza(tragitto []Punto) float64 {
@@ -40,5 +41,11 @@ func Lunghezza(tragitto []Punto) float64 {
 	for i:=0 ; i<len(tragitto)-1; i++ {
 		totale += Distanza(tragitto[i], tragitto[i+1])
 	}
+	return totale
+}
+
+func main() {
+	travel := NuovoTragitto()
+	fmt.Println(Lunghezza(travel))
 }
 
