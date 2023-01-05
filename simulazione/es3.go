@@ -33,7 +33,7 @@ func Distanza(p1, p2 Punto) float64 {
 }
 
 func String(p Punto) string {
-	return fmt.Sprintf("%s = (%f, %f)", p.etichetta, p.ascissa, p.ordinata)
+	return fmt.Sprintf("%s = (%.2f, %.2f)", p.etichetta, p.ascissa, p.ordinata)
 }
 
 func Lunghezza(tragitto []Punto) float64 {
@@ -43,9 +43,18 @@ func Lunghezza(tragitto []Punto) float64 {
 	}
 	return totale
 }
-
+func NearToHalf(tragitto []Punto) (out Punto){
+	half := Lunghezza(tragitto)/2.0
+	var track float64
+	var i int 
+	for i=1; track<half; i++{
+		track += Distanza(tragitto[i-1], tragitto[i])
+	}
+	return tragitto[i-1]
+}
 func main() {
 	travel := NuovoTragitto()
-	fmt.Println(Lunghezza(travel))
+	fmt.Printf("Lunghezza percorso: %.2f\n", Lunghezza(travel))
+	fmt.Printf("Punto oltre metà: %s", String(NearToHalf(travel)))
 }
 
