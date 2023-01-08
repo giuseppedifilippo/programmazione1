@@ -33,7 +33,7 @@ func main() {
 		
 	}
   out := ""
-  //unisco gli 
+  //unisco gli elementi della slice in una stringa   
   for _, el := range sl {
     out += strconv.Itoa(el)
   }
