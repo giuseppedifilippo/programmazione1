@@ -3,6 +3,7 @@ package main
 import (
 	"os"
 	"strconv"
+  "fmt"
 	"strings"
 )
 
@@ -29,6 +30,9 @@ func main() {
 		sl = sl[:len(sl)-1]
 		
 	}
-	//sta da fare la parte di stampa ma non ho voglia la logica ha senso e funziona
-	//pace 
+  out := ""
+  for _, el := range sl {
+    out += strconv.Itoa(el)
+  }
+	fmt.Printf("numero migliore: %s", out)
 }
