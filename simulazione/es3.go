@@ -55,6 +55,6 @@ func NearToHalf(tragitto []Punto) (out Punto){
 func main() {
 	travel := NuovoTragitto()
 	fmt.Printf("Lunghezza percorso: %.2f\n", Lunghezza(travel))
-	fmt.Printf("Punto oltre metà: %s", String(NearToHalf(travel)))
+	fmt.Printf("Punto oltre metà: %s\n", String(NearToHalf(travel)))
 }
 
