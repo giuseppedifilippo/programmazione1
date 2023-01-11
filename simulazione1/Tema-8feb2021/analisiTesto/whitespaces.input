@@ -1,0 +1,10 @@
+Then		 for constructing the final string result, you can use append() to
+
+
+   accumulate the data in a single byte slice as you
+
+read each file, then convert the accumulated byte                        slice to the final string result.
+
+
+
+Alternatively you might like bytes.Join. 

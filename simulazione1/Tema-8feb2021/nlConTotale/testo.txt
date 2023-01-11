@@ -1,0 +1,37 @@
+# TESTO
+
+Realizzare un programma Go (nome file 'nlConTotale.go') che implementi un 'nl', comando Unix che "numera" le linee di un file di testo, migliorato dall'aggiunta del totale delle righe.
+
+Il programma deve prendere un parametro da linea di comando:
+- nome del file da elaborare
+
+e stampare su standard output le righe del file, ciascuna preceduta da un numero progressivo (partendo da 1), un "/", il totale delle righe, un ":" e un TAB.
+
+Il carattere TAB si può produrre con la sequenza di escape "\t".
+
+
+Nota bene: NON va implementato invocando da Go il comando 'nl' di sistema.
+
+## Esempio esecuzione
+
+(presuppone il 'nlConTotale.go' già compilato, 'uno.input' è presente in questa directory)
+
+$ ./nl uno.input
+1/18:	Lorem Ipsum is simply dummy text of the printing
+2/18:	and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+3/18:	text ever since the 1500s, when an unknown printer took
+4/18:	a galley of type and scrambled it to make a type
+5/18:	specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+6/18:	remaining essentially unchanged. It was popularised in the 1960s with the release
+7/18:	of Letraset sheets containing Lorem Ipsum passages, and more
+8/18:	recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+9/18:	
+10/18:	Lorem Ipsum is simply dummy text of the printing
+11/18:	and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+12/18:	text ever since the 1500s, when an unknown printer took
+13/18:	a galley of type and scrambled it to make a type
+14/18:	specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+15/18:	
+16/18:	remaining essentially unchanged. It was popularised in the 1960s with the release
+17/18:	of Letraset sheets containing Lorem Ipsum passages, and more
+18/18:	recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
