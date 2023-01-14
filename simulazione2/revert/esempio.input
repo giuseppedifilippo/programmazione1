@@ -1,0 +1,11 @@
+Realizzare un programma Go  che legge da standard input
+
+
+stringhe costituite da soli caratteri ASCII in numero arbitrario e separate da un numero arbitrario di white space e 
+
+stampa               solo quelle di lunghezza pari, al contrario (il primo carattere per ultimo e l'ultimo per primo), 
+	una per riga.
+stop ho scritto stop
+
+stop
+

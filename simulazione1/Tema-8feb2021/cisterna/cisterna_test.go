@@ -2,7 +2,7 @@
 Cisterna
 ========
 
-
+simulazione1/Tema-8feb2021/cisterna/cisterna_test.go
 Scrivere un programma 'cisterna.go' dotato di:
 
 - una struttura 'Cisterna' con 3 campi float64 per le tre dimensioni (in cm) (NOTA SERVIRA' SPECIFICARE NOME E ORDINE DEI CAMPI?) e un ulteriore campo float64 che indica il livello (in cm) a cui arriva l'acqua nella cisterna

@@ -1,0 +1,26 @@
+===  questa frase contiene: 13 parole, lunghezza massima: 8, lunghezza minima: 5, esclusi numeri
+minimo dichiarato 5 contro minimo verificato 5
+massimo dichiarato 8 contro massimo verificato 9
+numero parole dichiarato 13 contro numero parole verificato 10
+bugiardo
+===  questa lunghissima frase invece contiene: 17 parole, lunghezza massima: 11, lunghezza minima: 2, esclusi numeri si intende
+minimo dichiarato 2 contro minimo verificato 2
+massimo dichiarato 11 contro massimo verificato 11
+numero parole dichiarato 17 contro numero parole verificato 14
+bugiardo
+===  questa più corta contiene: 11 parole, lunghezza massima: 9, lunghezza minima: 4, esclusi numeri
+minimo dichiarato 4 contro minimo verificato 4
+massimo dichiarato 9 contro massimo verificato 9
+numero parole dichiarato 11 contro numero parole verificato 11
+onesto
+===  e tanto per cambiare questa contiene: 17 parole, lunghezza massima: 11, lunghezza minima: 2, esclusi numeri naturalmente
+minimo dichiarato 2 contro minimo verificato 1
+massimo dichiarato 11 contro massimo verificato 12
+numero parole dichiarato 17 contro numero parole verificato 14
+bugiardo
+===  ma alla fine poi questa contiene: 14 parole, lunghezza massima: 12, lunghezza minima: 2, esclusi numeri naturalmente
+minimo dichiarato 2 contro minimo verificato 2
+massimo dichiarato 12 contro massimo verificato 12
+numero parole dichiarato 14 contro numero parole verificato 14
+onesto
+

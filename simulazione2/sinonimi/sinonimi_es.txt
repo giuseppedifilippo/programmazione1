@@ -1,0 +1,3 @@
+monti: montagne, colli, alture, cime
+terre: regioni, territori
+rive: coste, sponde, lidi
