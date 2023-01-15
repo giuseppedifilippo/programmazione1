@@ -2,8 +2,8 @@ package main
 
 import (
 	"errors"
+	"fmt"
 	"math"
-	"sort"
 )
 
 type Punto struct {
@@ -38,9 +38,31 @@ func newTriangolo(A,B,C Punto) (Triangolo, error) {
 }
 
 func tipoTriangolo(triangolo Triangolo) int {
-	sl := []float64{}
-	sl = append(sl,LunghezzeLati(triangolo.P1, triangolo.P2, triangolo.P3)...)
-	sort.Float64s(arr)
-
+	arr := LunghezzeLati(triangolo.P1, triangolo.P2, triangolo.P3)
+	var count int 
+	for i:= 0 ; i< 2; i++ {
+		for _, el := range arr[i+1:] {
+			if math.Abs(arr[i]-el) < 1e-6 {
+				count++
+			}
+		}
+	}
+	if count == 0 {
+		return count
+	}
+	return count+1
 }
 
+func main() {
+	var A,B,C Punto 
+	fmt.Scanf("%f %f\n", &A.x, &A.y)
+	fmt.Scanf("%f %f\n", &B.x, &B.y)
+	fmt.Scanf("%f %f\n", &C.x, &C.y)
+	triangolo, err := newTriangolo(A,B,C)
+	fmt.Printf("l'output è:\n%.2f\n", LunghezzeLati(A,B,C))
+	if err != nil {
+		fmt.Println("non è un triangolo")
+	} else {
+		fmt.Printf("triangolo %.2f\ntipo %d\n", triangolo, tipoTriangolo(triangolo))
+	}
+}
