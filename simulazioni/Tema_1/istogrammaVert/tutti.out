@@ -1,0 +1,104 @@
+=== RUN   TestCrescente
+[ Questo test confronta l'output con l'output atteso ]
+[ Presuppone che l'eseguibile da testare ( ./istogrammaVert ) sia già stato compilato! ]
+/// Argomenti: [1 2 3 4]
+
+/// Input:
+NIENTE
+
+/// eseguo diff... [ SX: /tmp/studente.3395188747 - DX: /tmp/atteso.1982958503 ]
+      * 							      * 
+    * * 							    * * 
+  * * * 							  * * * 
+* * * * 							* * * * 
+
+
+--- PASS: TestCrescente (0.00s)
+=== RUN   TestDecrescente
+[ Questo test confronta l'output con l'output atteso ]
+[ Presuppone che l'eseguibile da testare ( ./istogrammaVert ) sia già stato compilato! ]
+/// Argomenti: [5 4 3 2 1]
+
+/// Input:
+NIENTE
+
+/// eseguo diff... [ SX: /tmp/studente.881794894 - DX: /tmp/atteso.1297539702 ]
+*         						      |	* 
+* *       						      |	* * 
+* * *     						      |	* * * 
+* * * *   						      |	* * * * 
+* * * * * 							* * * * * 
+
+>>> FAIL! differisce da output atteso
+
+--- FAIL: TestDecrescente (0.00s)
+=== RUN   TestEsempio
+[ Questo test confronta l'output con l'output atteso ]
+[ Presuppone che l'eseguibile da testare ( ./istogrammaVert ) sia già stato compilato! ]
+/// Argomenti: [5 0 2 9 4]
+
+/// Input:
+NIENTE
+
+/// eseguo diff... [ SX: /tmp/studente.2654597677 - DX: /tmp/atteso.4227822220 ]
+      *   							      *   
+      *   							      *   
+      *   							      *   
+      *   							      *   
+*     *   							*     *   
+*     * * 							*     * * 
+*     * * 							*     * * 
+*   * * * 							*   * * * 
+*   * * * 						      /	*   * * * 
+
+>>> FAIL! differisce da output atteso
+
+--- FAIL: TestEsempio (0.00s)
+=== RUN   TestTanti
+[ Questo test confronta l'output con l'output atteso ]
+[ Presuppone che l'eseguibile da testare ( ./istogrammaVert ) sia già stato compilato! ]
+/// Argomenti: [5 0 2 9 4 5 0 12 9 14 5 0 2 29 4]
+
+/// Input:
+NIENTE
+
+/// eseguo diff... [ SX: /tmp/studente.4121795885 - DX: /tmp/atteso.3851576122 ]
+                          *   				      |	                          * 
+                          *   				      |	                          * 
+                          *   				      |	                          * 
+                          *   				      |	                          * 
+                          *   				      |	                          * 
+                          *   				      |	                          * 
+                          *   				      |	                          * 
+                          *   				      |	                          * 
+                          *   				      |	                          * 
+                          *   				      |	                          * 
+                          *   				      |	                          * 
+                          *   				      |	                          * 
+                          *   				      |	                          * 
+                          *   				      |	                          *  
+                          *   				      |	                          *  
+                  *       *   				      |	                  *       *  
+                  *       *   				      |	                  *       *  
+              *   *       *   				      |	              *   *       *  
+              *   *       *   				      |	              *   *       *  
+              *   *       *   				      |	              *   *       *  
+      *       * * *       *   				      |	      *       * * *       *  
+      *       * * *       *   				      |	      *       * * *       *  
+      *       * * *       *   				      |	      *       * * *       *  
+      *       * * *       *   				      |	      *       * * *       * 
+*     *   *   * * * *     *   				      |	*     *   *   * * * *     * 
+*     * * *   * * * *     * * 					*     * * *   * * * *     * * 
+*     * * *   * * * *     * * 					*     * * *   * * * *     * * 
+*   * * * *   * * * *   * * * 					*   * * * *   * * * *   * * * 
+*   * * * *   * * * *   * * * 				      /	*   * * * *   * * * *   * * * 
+
+>>> FAIL! differisce da output atteso
+
+--- FAIL: TestTanti (0.00s)
+=== RUN   TestLinux
+controllo sistema operativo... OK!
+--- PASS: TestLinux (0.00s)
+FAIL
+exit status 1
+FAIL	istogrammaVert	0.009s

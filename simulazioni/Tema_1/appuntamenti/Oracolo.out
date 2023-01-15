@@ -1,0 +1,35 @@
+=== RUN   TestAppuntamentoNorm
+--- PASS: TestAppuntamentoNorm (0.00s)
+=== RUN   TestAppuntamentoWrongDay
+--- PASS: TestAppuntamentoWrongDay (0.00s)
+=== RUN   TestAppuntamentoWrongTime
+--- PASS: TestAppuntamentoWrongTime (0.00s)
+=== RUN   TestSovrAppuntamentoPost
+--- PASS: TestSovrAppuntamentoPost (0.00s)
+=== RUN   TestSovrAppuntamentoFake
+--- PASS: TestSovrAppuntamentoFake (0.00s)
+=== RUN   TestSovrAppuntamentoIdentici
+--- PASS: TestSovrAppuntamentoIdentici (0.00s)
+=== RUN   TestSovrAppuntamentoPre
+--- PASS: TestSovrAppuntamentoPre (0.00s)
+=== RUN   TestSovrAppuntamentoPreSameEnd
+--- PASS: TestSovrAppuntamentoPreSameEnd (0.00s)
+=== RUN   TestSovrAppuntamentoFakeContigui
+--- PASS: TestSovrAppuntamentoFakeContigui (0.00s)
+=== RUN   TestAppuntamentoReversedTime
+--- PASS: TestAppuntamentoReversedTime (0.00s)
+=== RUN   TestAgendaNorm
+--- PASS: TestAgendaNorm (0.00s)
+=== RUN   TestMain1
+Input:
+200 11 12
+201 11 12
+201 11 13
+201 13 12
+
+Output:
+[{200 11 12} {201 11 12}]
+
+--- PASS: TestMain1 (0.01s)
+PASS
+ok  	_/home/atrentini/Dropbox/ProgLabTemi/Pool/OldPattern/appuntamenti	0.009s

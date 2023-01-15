@@ -1,0 +1,26 @@
+# TESTO
+
+Realizzare un programma Go (nome file 'reflow.go') che implementi una "funzionalità di /reflow/", cioè la capacità di prendere un testo di caratteri ASCII con righe di lunghezza variabile e di trasformarlo in uno con righe il più vicino possibile a una stessa lunghezza (parametrica), ma senza mai superarla, troncando le righe troppo lunghe e "portando su del testo" per le righe troppo corte, senza però spezzare le parole.
+
+Il programma deve prendere due parametri da linea di comando:
+- larghezza massima desiderata del testo
+- nome del file da elaborare
+
+e stampare su standard output il testo così "riformattato".
+
+Nota bene:
+- il testo sorgente potrebbe contenere righe vuote
+- gli 'a capo' del file sorgente devono diventare spazi
+- le parole non devono essere spezzate nel processo; se fanno superare la lunghezza parametrica, vanno stampate nella riga successiva
+- NON è necessario gestire i casi in cui esista una parola più lunga della larghezza massima desiderata del testo
+
+## Esempio esecuzione
+
+(presuppone il 'reflow.go' già compilato, mentre il file di input è presente in questa directory)
+
+$ ./reflow 20 lorem_short.input 
+Lorem Ipsum is 
+simply dummy text 
+of the printing and 
+typesetting 
+industry. 

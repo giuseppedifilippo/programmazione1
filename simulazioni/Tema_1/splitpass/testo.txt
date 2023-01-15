@@ -1,0 +1,184 @@
+# TESTO
+
+Realizzare un programma Go (nome file 'split.go') che implementi un semplice 'split', comando Unix che prende un file di testo e lo spezza in una serie di blocchi contenenti ognuno al massimo N righe (N parametrico).
+
+Il programma deve prendere due parametri da linea di comando:
+- numero di righe dei blocchi da generare
+- nome del file da elaborare
+
+e stampare su standard output i blocchi di righe, intercalandoli con un separatore composto da queste tre righe:
+
+::::::::::::::
+taglio-<numero progressivo>
+::::::::::::::
+
+
+Nota: per produrre un intero con eventuali 0 iniziali si può utilizzare la funzione fmt.Printf() usando "%02d" come specificatore di formato.
+
+
+Nota bene: NON va implementato invocando da Go il comando Unix 'split' di sistema.
+
+## Esempi esecuzione
+
+(presuppone 'split.go' già compilato, i file di input sono presenti in questa directory)
+
+$ ./split 5 lorem2.input
+::::::::::::::
+taglio-00
+::::::::::::::
+Lorem Ipsum is simply dummy text of the printing
+and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+text ever since the 1500s, when an unknown printer took
+a galley of type and scrambled it to make a type
+specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+::::::::::::::
+taglio-01
+::::::::::::::
+remaining essentially unchanged. It was popularised in the 1960s with the release
+of Letraset sheets containing Lorem Ipsum passages, and more
+recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+Lorem Ipsum is simply dummy text of the printing
+and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+::::::::::::::
+taglio-02
+::::::::::::::
+text ever since the 1500s, when an unknown printer took
+a galley of type and scrambled it to make a type
+specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+remaining essentially unchanged. It was popularised in the 1960s with the release
+of Letraset sheets containing Lorem Ipsum passages, and more
+::::::::::::::
+taglio-03
+::::::::::::::
+recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+Lorem Ipsum is simply dummy text of the printing
+and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+text ever since the 1500s, when an unknown printer took
+a galley of type and scrambled it to make a type
+::::::::::::::
+taglio-04
+::::::::::::::
+specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+remaining essentially unchanged. It was popularised in the 1960s with the release
+of Letraset sheets containing Lorem Ipsum passages, and more
+recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+Lorem Ipsum is simply dummy text of the printing
+::::::::::::::
+taglio-05
+::::::::::::::
+and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+text ever since the 1500s, when an unknown printer took
+a galley of type and scrambled it to make a type
+specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+remaining essentially unchanged. It was popularised in the 1960s with the release
+::::::::::::::
+taglio-06
+::::::::::::::
+of Letraset sheets containing Lorem Ipsum passages, and more
+recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+Lorem Ipsum is simply dummy text of the printing
+and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+text ever since the 1500s, when an unknown printer took
+::::::::::::::
+taglio-07
+::::::::::::::
+a galley of type and scrambled it to make a type
+specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+remaining essentially unchanged. It was popularised in the 1960s with the release
+of Letraset sheets containing Lorem Ipsum passages, and more
+recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+::::::::::::::
+taglio-08
+::::::::::::::
+Lorem Ipsum is simply dummy text of the printing
+and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+text ever since the 1500s, when an unknown printer took
+a galley of type and scrambled it to make a type
+specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+::::::::::::::
+taglio-09
+::::::::::::::
+remaining essentially unchanged. It was popularised in the 1960s with the release
+of Letraset sheets containing Lorem Ipsum passages, and more
+recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+Lorem Ipsum is simply dummy text of the printing
+and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+::::::::::::::
+taglio-10
+::::::::::::::
+text ever since the 1500s, when an unknown printer took
+a galley of type and scrambled it to make a type
+specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+remaining essentially unchanged. It was popularised in the 1960s with the release
+of Letraset sheets containing Lorem Ipsum passages, and more
+::::::::::::::
+taglio-11
+::::::::::::::
+recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+
+
+
+$ ./split 10 costituzione.input
+::::::::::::::
+taglio-00
+::::::::::::::
+PRINCIPI FONDAMENTALI
+
+Art. 1.
+L'Italia è una Repubblica democratica, fondata sul lavoro.
+La sovranità appartiene al popolo, che la esercita nelle forme e nei limiti della Costituzione.
+
+Art. 2.
+La Repubblica riconosce e garantisce i diritti inviolabili dell'uomo, sia come singolo sia nelle formazioni sociali ove si svolge la sua personalità, e richiede l'adempimento dei doveri inderogabili di solidarietà politica, economica e sociale.
+
+Art. 3.
+::::::::::::::
+taglio-01
+::::::::::::::
+Tutti i cittadini hanno pari dignità sociale e sono eguali davanti alla legge, senza distinzione di sesso, di razza, di lingua, di religione, di opinioni politiche, di condizioni personali e sociali.
+È compito della Repubblica rimuovere gli ostacoli di ordine economico e sociale, che, limitando di fatto la libertà e l'eguaglianza dei cittadini, impediscono il pieno sviluppo della persona umana e l'effettiva partecipazione di tutti i lavoratori all'organizzazione politica, economica e sociale del Paese.
+
+Art. 4.
+La Repubblica riconosce a tutti i cittadini il diritto al lavoro e promuove le condizioni che rendano effettivo questo diritto.
+Ogni cittadino ha il dovere di svolgere, secondo le proprie possibilità e la propria scelta, un'attività o una funzione che concorra al progresso materiale o spirituale della società.
+
+Art. 5.
+La Repubblica, una e indivisibile, riconosce e promuove le autonomie locali; attua nei servizi che dipendono dallo Stato il più ampio decentramento amministrativo; adegua i principi ed i metodi della sua legislazione alle esigenze dell'autonomia e del decentramento.
+
+::::::::::::::
+taglio-02
+::::::::::::::
+Art. 6.
+La Repubblica tutela con apposite norme le minoranze linguistiche.
+
+Art. 7.
+Lo Stato e la Chiesa cattolica sono, ciascuno nel proprio ordine, indipendenti e sovrani.
+I loro rapporti sono regolati dai Patti Lateranensi. Le modificazioni dei Patti accettate dalle due parti, non richiedono procedimento di revisione costituzionale.
+
+Art. 8.
+Tutte le confessioni religiose sono egualmente libere davanti alla legge.
+Le confessioni religiose diverse dalla cattolica hanno diritto di organizzarsi secondo i propri statuti, in quanto non contrastino con l'ordinamento giuridico italiano.
+::::::::::::::
+taglio-03
+::::::::::::::
+I loro rapporti con lo Stato sono regolati per legge sulla base di intese con le relative rappresentanze.
+
+Art. 9.
+La Repubblica promuove lo sviluppo della cultura e la ricerca scientifica e tecnica.
+Tutela il paesaggio e il patrimonio storico e artistico della Nazione.
+
+Art. 10.
+L'ordinamento giuridico italiano si conforma alle norme del diritto internazionale generalmente riconosciute.
+La condizione giuridica dello straniero è regolata dalla legge in conformità delle norme e dei trattati internazionali.
+Lo straniero, al quale sia impedito nel suo paese l'effettivo esercizio delle libertà democratiche garantite dalla Costituzione italiana, ha diritto d'asilo nel territorio della Repubblica secondo le condizioni stabilite dalla legge.
+::::::::::::::
+taglio-04
+::::::::::::::
+Non è ammessa l'estradizione dello straniero per reati politici.
+NB: La Legge costituzionale 21 giugno 1967, n. 1 ha disposto che l'ultimo comma del presente articolo non si applica ai delitti di genocidio.
+
+Art. 11.
+L'Italia ripudia la guerra come strumento di offesa alla libertà degli altri popoli e come mezzo di risoluzione delle controversie internazionali; consente, in condizioni di parità con gli altri Stati, alle limitazioni di sovranità necessarie ad un ordinamento che assicuri la pace e la giustizia fra le Nazioni; promuove e favorisce le organizzazioni internazionali rivolte a tale scopo.
+
+Art. 12.
+La bandiera della Repubblica è il tricolore italiano: verde, bianco e rosso, a tre bande verticali di eguali dimensioni.

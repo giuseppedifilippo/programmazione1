@@ -1,0 +1,90 @@
+# TESTO
+
+Realizzare un programma Go (nome file 'cut.go') che implementi un semplice 'cut', comando Unix che taglia una "fetta" di un file di testo ASCII in verticale.
+
+
+Il programma deve prendere tre parametri da linea di comando:
+- numero i della colonna di inizio taglio
+- numero j della colonna di fine taglio
+- nome del file da elaborare
+
+e stampare su standard output, di ogni riga, la parte tra il carattere i-esimo e il carattere j-esimo, inclusi. Se non ci sono caratteri per arrivare al j-esimo, il programma stampa quelli che ci sono, anche nessuno se la riga ha meno di i caratteri.
+
+Nota bene: NON va implementato invocando da Go il comando 'cut' di sistema.
+
+## Esempi esecuzione
+
+(presuppone il 'cut.go' già compilato, mentre i file di input sono presenti in questa directory)
+
+
+$ ./cut 3 10 lorem.input
+rem Ipsu
+d typese
+xt ever 
+galley o
+ecimen b
+maining 
+ Letrase
+cently w
+
+
+$ ./cut 1 15 costituzione.input
+PRINCIPI FONDAM
+
+Art. 1.
+L'Italia è una
+La sovranità a
+
+Art. 2.
+La Repubblica r
+
+Art. 3.
+Tutti i cittadi
+È compito dell
+
+Art. 4.
+La Repubblica r
+Ogni cittadino 
+
+Art. 5.
+La Repubblica, 
+
+Art. 6.
+La Repubblica t
+
+Art. 7.
+Lo Stato e la C
+I loro rapporti
+
+Art. 8.
+Tutte le confes
+Le confessioni 
+I loro rapporti
+
+Art. 9.
+La Repubblica p
+Tutela il paesa
+
+Art. 10.
+L'ordinamento g
+La condizione g
+Lo straniero, a
+Non è ammessa 
+NB: La Legge co
+
+Art. 11.
+L'Italia ripudi
+
+Art. 12.
+La bandiera del
+
+
+$ ./cut 70 200 lorem.input 
+
+d dummy
+
+
+leap into electronic typesetting,
+ the release
+
+ing versions of Lorem Ipsum.

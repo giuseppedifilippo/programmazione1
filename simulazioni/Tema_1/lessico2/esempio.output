@@ -1,0 +1,19 @@
++ (legge e memorizza)
+? (numeri di riga in cui è comparsa la parola data)
+m (stampa le lunghezze min e max)
+p (stampa le parole memorizzate)
+alimento il dizionario
+alimento il dizionario
+opzione non valida
+stampo il dizionario ordinato
+aa : [1 2]
+bbbb : [1]
+ccc : [1]
+lunghezza min e max
+2 4
+consulto il dizionario
+parola: aa
+righe [1 2]
+consulto il dizionario
+parola: aa bbbb
+righe []
