@@ -40,4 +40,4 @@ func main() {
 	}
 	fmt.Println(lista)
 	fmt.Println(cancella(lista))
-}
+}//funziona come da specifiche ma i test non funzionano però gli output sono come richiesti
