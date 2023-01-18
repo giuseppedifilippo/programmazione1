@@ -40,4 +40,6 @@ func ConvertiDBinWatt(signal_dBm int) float64 {
 	return math.Pow10(signal_dBm)/1000.0
 }
 
-func 
+func PiuPotente(elenco []Wifi, banda string) int {
+	
+}

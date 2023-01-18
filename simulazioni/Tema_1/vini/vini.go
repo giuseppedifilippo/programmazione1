@@ -1,49 +1,33 @@
 package main
 
 import (
-	"fmt"
-	"strings"
 	"bufio"
+	"fmt"
 	"os"
 	"strconv"
+	"strings"
 )
 
-type  BottigliaVino struct {
+type BottigliaVino struct {
 	nome string
 	anno int
 	grado float32
 	quantita int
 }
 
-func (b BottigliaVino) String() string {
-	out := fmt.Sprintf("%s,%d,%.1f,%d", b.nome, b.anno, b.grado, b.quantita)
-	pos := strings.Index(out, ".0,")
-
-	if pos != -1 {
-		out = out[:pos] + "," + out[pos+3:]
-	}
-
-	return out
-}
-
 func CreaBottiglia(nome string, anno int, grado float32, quantita int) (BottigliaVino, bool) {
-	if nome == "" || anno <= 0 || grado <= 0 || quantita <= 0 {
-		return BottigliaVino{}, false
-	} else {
-		return BottigliaVino{nome, anno, grado, quantita}, true
+	if nome != "" && anno > 0 && grado > 0 && quantita > 0 {
+		return BottigliaVino{nome : nome, anno : anno, grado : grado, quantita : quantita} , true
 	}
+	return BottigliaVino{} , true
 }
 
 func CreaBottigliaDaRiga(riga string) (BottigliaVino, bool) {
-	line := strings.Split(riga, ",")
-	if len(line) != 4 {
-		return BottigliaVino{},false
-	}
-	anno, _ := strconv.Atoi(line[1])
-	grd, _ := strconv.ParseFloat(line[2], 32)
-	grado := float32(grd)
-	qnt, _ := strconv.Atoi(line[3])
-	return CreaBottiglia(line[0], anno, grado, qnt)
+	sl := strings.Split(riga, ",")
+	anno , _ := strconv.Atoi(sl[1])
+	grado, _ := strconv.ParseFloat(sl[2],64)
+	quantita, _ := strconv.Atoi(sl[3])
+	return CreaBottiglia(sl[0],anno, float32(grado),quantita)
 }
 
 func AggiungiBottiglia(bot BottigliaVino, cantina *[]BottigliaVino) {
@@ -51,43 +35,43 @@ func AggiungiBottiglia(bot BottigliaVino, cantina *[]BottigliaVino) {
 }
 
 func AggiungiBottigliaDaRiga(bot string, cantina *[]BottigliaVino) {
-	bottiglia, ok := CreaBottigliaDaRiga(bot)
-	if ok {
-		AggiungiBottiglia(bottiglia, cantina)
+	bottiglia , ok := CreaBottigliaDaRiga(bot)
+	if  ok {
+		*cantina = append(*cantina, bottiglia)
 	}
 }
 
 func ContaPerTipo(nome string, cantina []BottigliaVino) int {
-	count := 0
-	for _, tipo := range cantina {
-		if tipo.nome == nome {
+	var count int
+	for _, el := range cantina {
+		if el.nome == nome {
 			count++
 		}
 	}
-
 	return count
 }
 
+func (bot BottigliaVino) String() string {
+	return fmt.Sprintf("%s,%d,%.f,%d", bot.nome,bot.anno, bot.grado,bot.quantita)
+}
+
 func main() {
-	cantina := []BottigliaVino{}
-
-	file, err := os.Open(os.Args[1])
+	f, err := os.Open(os.Args[1])
 	if err != nil {
-		fmt.Println("file non trovato")
-		return
+		fmt.Println("file error")
+		os.Exit(1)
 	}
-	defer file.Close()
-
-	scanner := bufio.NewScanner(file)
-	scanner.Split(bufio.ScanLines)
-
+	defer f.Close()
+	cantina := []BottigliaVino{}
+	scanner := bufio.NewScanner(f)
 	for scanner.Scan() {
-		if scanner.Text() != "" {
-			AggiungiBottigliaDaRiga(scanner.Text(), &cantina)
+		if len(scanner.Text()) <= 1 {
+			continue
 		}
-	}
-
-	for _, b := range cantina {
-		fmt.Println(b.String())
+		bot, ok := CreaBottigliaDaRiga(scanner.Text())
+		if ok {
+			AggiungiBottiglia(bot,&cantina)
+			fmt.Println(bot.String())
+		}
 	}
 }
