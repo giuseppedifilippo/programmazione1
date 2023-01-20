@@ -35,11 +35,6 @@ func main() {
 			}
 		}
 	}
-	/*lista := []int{}
-	for k := range mappa {
-		lista = append(lista, k)
-	}
-	sort.Ints(lista)*/
 	for i:=0; i<=9;i++{
 		fmt.Printf("%d - %d\n", i, mappa[i])
 	}
