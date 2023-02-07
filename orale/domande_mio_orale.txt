@@ -1,0 +1,15 @@
+questi sono i tre esercizi che ho ricevuto agli orali con boldi 
+
+1)creare una funzione che prende come argomanto una lista concatenata che contiene date e un data(una struct che ha campi g,m,a int) e ritorni il conto di tutte 
+le date precedenti 
+
+2) creare una funzione ricorsiva che prende come argomenti due interi x e y(y compreso tra 0 e 9 inclusi) e ritorni quante volte la cifra y e contenuta in x, 
+ non si possono usare stringhe
+
+3) scrivere un programma che dato n intero da linea di comando stampi un triangolo di lato lungo n come in esempio
+*
+* *
+*  *
+*   *
+*    *
+******
